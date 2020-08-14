@@ -4,7 +4,9 @@
 const express = require("express");
 const app = express();
 
-
+app.get("/", (req, res) => {
+    res.send('<h1>Primeira aplicação com NodeJs</h1>');
+});
 
 //Definir que o servidor vai escutar
 const port = 1234;
