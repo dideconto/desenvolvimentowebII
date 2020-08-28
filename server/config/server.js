@@ -8,6 +8,7 @@ const routes = require("./routes.js");
 const app = express();
 
 //Configurar a conversão das informações que chegam em uma requisição
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Configurar arquivo de rotas

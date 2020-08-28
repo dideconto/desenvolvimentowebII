@@ -10,7 +10,8 @@ const billingCycleSchema = new mongoose.Schema({
     max: ["2050-01-01", "A data não pode ser maior do que 01/01/2050"],
   },
   credits: [creditSchema],
-  debits: [debitSchema]
+  debits: [debitSchema],
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Cycles", billingCycleSchema);

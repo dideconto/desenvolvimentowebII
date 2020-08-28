@@ -10,13 +10,14 @@ Aula 20/08/2020
 [x] Instalar nodemon
 [x] Arquivo de rotas
 [x] Organizar projeto
-[ ] Pacote de conversão URL e Json (Body-Parser)
+[x] Pacote de conversão URL e Json (Body-Parser)
 [x] Conectar com o banco (Mongoose)
 [x] Criar os schemas
-[ ] Testar a api com JSON
-[ ] Exercício GET/Listar, PUT/Alterar e DELETE/Apagar
 
-
-[ ] Testar a api com formulário
-[ ] Criar o controller - Cadastrar/Listar/Buscar
-[ ] Mensagens personalizadas de erro
+Aula 27/08/2020
+[x] Testar a api com JSON
+[x] POST/Cadastrar, GET/Listar e GET/Buscar
+[ ] Exercício - PUT/Alterar e DELETE/Apagar
+[x] Testar a api com formulário
+[x] Criar o controller
+[ ] Exercício - Mensagens personalizadas de erro

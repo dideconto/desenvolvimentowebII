@@ -2,18 +2,31 @@
 GET http://localhost:1234/
 
 ###
+GET http://localhost:1234/5f483ea0659fd40bf4e726f1
+
+###
 POST http://localhost:1234/
 content-type: application/json
 
 {
     "date": "2020-08-20",
-    "credits":[{
-        "name": "Salário",
-        "value": 5000
-    }],
-    "debits":[{
-        "name": "Luz",
-        "value": 100,
-        "status": "PAGO"
-    }]
+    "credits":
+    [
+        {
+            "name": "Salário",
+            "value": 5000
+        },
+        {
+            "name": "Investimentos",
+            "value": 375
+        }
+    ],
+    "debits":
+    [
+        {
+            "name": "Luz",
+            "value": 100,
+            "status": "PAGO"
+        }
+    ]
 }
