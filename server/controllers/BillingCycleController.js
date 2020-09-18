@@ -1,6 +1,10 @@
 const billingCycle = require("../models/BillingCycleSchema.js");
 //lodash
 
+//npm install @angular/cli -g
+//ng -v
+//ng -help
+
 class BillingCycleController {
   async store(req, res) {
     try {

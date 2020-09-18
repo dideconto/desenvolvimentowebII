@@ -1,0 +1,24 @@
+
+<button (click)="navigateToCreateCycle()">
+    Cadastrar Ciclo de Pagamento
+</button>
+
+<table>
+    <thead>
+      <td>#</td>
+      <td>Data</td>
+      <td>Criado em</td>
+    </thead>
+    <tbody *ngFor="let cycle of cycles">
+      <tr>
+        <td>{{ cycle._id }}</td>
+        <td>{{ cycle.date }}</td>
+        <td>{{ cycle.createAt }}</td>
+        <td>
+            <button>
+                Detalhar
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
