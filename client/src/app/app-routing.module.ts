@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'cycle/create', 
     component: CreateCycleComponent
+  },
+  {
+    path: 'cycle/create/:id', 
+    component: CreateCycleComponent
   }
 ];
 

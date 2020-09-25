@@ -9,22 +9,22 @@ POST http://localhost:1234/
 content-type: application/json
 
 {
-    "date": "2020-08-20",
+    "date": "2020-09-24",
     "credits":
     [
         {
-            "name": "Salário",
+            "name": "Teste",
             "value": 5000
         },
         {
-            "name": "Investimentos",
+            "name": "Teste teste",
             "value": 375
         }
     ],
     "debits":
     [
         {
-            "name": "Luz",
+            "name": "Teste Teste teste",
             "value": 100,
             "status": "PAGO"
         }

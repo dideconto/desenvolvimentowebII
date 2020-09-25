@@ -1,24 +1,20 @@
-
 <button (click)="navigateToCreateCycle()">
     Cadastrar Ciclo de Pagamento
 </button>
 
 <table>
-    <thead>
-      <td>#</td>
-      <td>Data</td>
-      <td>Criado em</td>
-    </thead>
-    <tbody *ngFor="let cycle of cycles">
-      <tr>
-        <td>{{ cycle._id }}</td>
-        <td>{{ cycle.date }}</td>
-        <td>{{ cycle.createAt }}</td>
-        <td>
-            <button>
-                Detalhar
-            </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <tr>
+    <th>#</th>
+    <th>Data do ciclo</th>
+    <th>Criado em</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let cycle of cycles">
+    <td>{{cycle._id}}</td>
+    <td>{{cycle.date | date: "dd/MM/yyyy hh:mm"}}</td>
+    <td>{{cycle.createdAt | date: "dd/MM/yyyy hh:mm"}}</td>
+    <td>
+      <a routerLink="cycle/create/{{cycle._id}}">Alterar</a>
+    </td>
+  </tr>
+</table>

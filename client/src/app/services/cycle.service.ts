@@ -7,10 +7,15 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class CycleService {
+
+  baseURL = 'http://localhost:1234';
   
   constructor(private http: HttpClient) {}
 
   list(): Observable<BillingCycle[]> {
-    return this.http.get<BillingCycle[]>('http://localhost:1234');
+    return this.http.get<BillingCycle[]>(this.baseURL);
+  }
+  create(cycle: BillingCycle): Observable<BillingCycle>{
+    return this.http.post<BillingCycle>(this.baseURL, cycle);
   }
 }

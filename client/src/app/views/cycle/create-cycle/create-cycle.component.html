@@ -1,1 +1,9 @@
-<p>create-cycle works!</p>
+<label>Data do ciclo de pagamento</label>
+<input 
+    type="text" 
+    placeholder="Data do ciclo de pagamento"
+    name="date"
+    [(ngModel)]="cycle.date"
+/>
+
+<button (click)="create()">Cadastrar</button>

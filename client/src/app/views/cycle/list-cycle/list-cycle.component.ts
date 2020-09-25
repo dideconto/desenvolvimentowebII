@@ -17,6 +17,7 @@ export class ListCycleComponent implements OnInit {
   
   ngOnInit(): void {
     this.cycleService.list().subscribe((lista) => {
+      console.log(lista);
       this.cycles = lista;
     });
   }
