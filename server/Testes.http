@@ -5,8 +5,11 @@ GET http://localhost:1234/
 GET http://localhost:1234/5f483ea0659fd40bf4e726f1
 
 ###
+DELETE http://localhost:1234/
+
+###
 POST http://localhost:1234/
-content-type: application/json
+Content-Type: application/json
 
 {
     "date": "2020-09-24",

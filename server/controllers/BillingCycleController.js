@@ -24,6 +24,11 @@ class BillingCycleController {
     var result = await billingCycle.findById(req.params.cycleId);
     res.status(200).json(result);
   }
+
+  async deleteAll(req, res){
+    var result = await billingCycle.deleteMany();
+    res.status(200).json(result);
+  }
 }
 
 module.exports = new BillingCycleController();

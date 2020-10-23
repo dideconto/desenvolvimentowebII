@@ -1,9 +1,34 @@
-<label>Data do ciclo de pagamento</label>
-<input 
-    type="text" 
-    placeholder="Data do ciclo de pagamento"
-    name="date"
-    [(ngModel)]="cycle.date"
-/>
+<mat-card class="card">
+  <mat-card-title> Novo Ciclo de Pagamento </mat-card-title>
 
-<button (click)="create()">Cadastrar</button>
+  <mat-form-field>
+    <mat-label>Data do ciclo</mat-label>
+    <input matInput name="date" [(ngModel)]="cycle.date" />
+  </mat-form-field>
+</mat-card>
+
+<mat-card class="card">
+  <mat-card-title>Créditos</mat-card-title>
+
+  <mat-form-field class="input-fied">
+    <mat-label>Nome</mat-label>
+    <input matInput name="nameCredit"/>
+  </mat-form-field>
+
+  <mat-form-field class="input-fied">
+    <mat-label>Valor</mat-label>
+    <input matInput name="valueCredit"/>
+  </mat-form-field>
+  
+  <button mat-raised-button>
+    <span class="material-icons">
+        add
+    </span>
+  </button>
+</mat-card>
+
+<mat-card class="card">
+  <mat-card-title>Débitos</mat-card-title>
+</mat-card>
+
+<button mat-raised-button color="primary" (click)="create()">Cadastrar</button>
