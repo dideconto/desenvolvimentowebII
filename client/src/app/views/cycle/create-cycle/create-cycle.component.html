@@ -3,7 +3,7 @@
 
   <mat-form-field>
     <mat-label>Data do ciclo</mat-label>
-    <input matInput name="date" [(ngModel)]="cycle.date" />
+    <input matInput name="date" [(ngModel)]="date" />
   </mat-form-field>
 </mat-card>
 
@@ -12,19 +12,33 @@
 
   <mat-form-field class="input-fied">
     <mat-label>Nome</mat-label>
-    <input matInput name="nameCredit"/>
+    <input matInput name="creditName" [(ngModel)]="creditName" />
   </mat-form-field>
 
   <mat-form-field class="input-fied">
     <mat-label>Valor</mat-label>
-    <input matInput name="valueCredit"/>
+    <input matInput name="creditValue" [(ngModel)]="creditValue" />
   </mat-form-field>
   
-  <button mat-raised-button>
+  <button mat-raised-button (click)="addCredit()">
     <span class="material-icons">
         add
     </span>
   </button>
+
+  <table mat-table [(dataSource)]="creditsTable" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let credit"> {{credit.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Valor </th>
+      <td mat-cell *matCellDef="let credit"> {{credit.value}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="creditColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: creditColumns;"></tr>
+  </table>
+
 </mat-card>
 
 <mat-card class="card">
