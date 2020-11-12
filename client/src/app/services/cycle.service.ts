@@ -18,4 +18,13 @@ export class CycleService {
   create(cycle: BillingCycle): Observable<BillingCycle>{
     return this.http.post<BillingCycle>(this.baseURL, cycle);
   }
+  getById(id: string): Observable<BillingCycle>{
+    return this.http.get<BillingCycle>(`${this.baseURL}/${id}`);
+  }
+  update(cycle: BillingCycle): Observable<BillingCycle>{
+    return this.http.put<BillingCycle>(this.baseURL, cycle);
+  }
+  delete(id: string): Observable<BillingCycle[]>{
+    return this.http.delete<BillingCycle[]>(`${this.baseURL}/${id}`);
+  }
 }

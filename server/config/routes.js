@@ -6,5 +6,7 @@ router.get("/", billingCycleController.get);
 router.get("/:cycleId", billingCycleController.getById);
 router.post("/", billingCycleController.store);
 router.delete("/", billingCycleController.deleteAll);
+router.put("/", billingCycleController.update);
+router.delete("/:cycleId", billingCycleController.delete); 
 
 module.exports = router;

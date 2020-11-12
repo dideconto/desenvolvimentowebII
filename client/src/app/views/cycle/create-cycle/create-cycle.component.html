@@ -6,43 +6,85 @@
     <input matInput name="date" [(ngModel)]="date" />
   </mat-form-field>
 </mat-card>
+<div class="conteudo">
+  <mat-card id="credito" class="celula esquerda">
+    <mat-card-title>Créditos</mat-card-title>
+    <div class="campos">
+      <mat-form-field class="campo">
+        <mat-label>Nome</mat-label>
+        <input matInput name="creditName" [(ngModel)]="creditName" />
+      </mat-form-field>
 
-<mat-card class="card">
-  <mat-card-title>Créditos</mat-card-title>
+      <mat-form-field class="campo">
+        <mat-label>Valor</mat-label>
+        <input matInput name="creditValue" [(ngModel)]="creditValue" />
+      </mat-form-field>
+      <div class="botao">
+        <button mat-mini-fab color="primary" (click)="addCredit()">
+          <span class="material-icons"> add </span>
+        </button>
+      </div>
+    </div>
+    <table mat-table [(dataSource)]="creditsTable" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let credit">{{ credit.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Valor</th>
+        <td mat-cell *matCellDef="let credit">
+          {{ credit.value | currency: "BRL" }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="creditColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: creditColumns"></tr>
+    </table>
+  </mat-card>
 
-  <mat-form-field class="input-fied">
-    <mat-label>Nome</mat-label>
-    <input matInput name="creditName" [(ngModel)]="creditName" />
-  </mat-form-field>
+  <mat-card id="debito" class="celula direita">
+    <mat-card-title>Débitos</mat-card-title>
+    <div class="campos">
+      <mat-form-field class="campo">
+        <mat-label>Nome</mat-label>
+        <input matInput name="debitName" [(ngModel)]="debitName" />
+      </mat-form-field>
 
-  <mat-form-field class="input-fied">
-    <mat-label>Valor</mat-label>
-    <input matInput name="creditValue" [(ngModel)]="creditValue" />
-  </mat-form-field>
-  
-  <button mat-raised-button (click)="addCredit()">
-    <span class="material-icons">
-        add
-    </span>
-  </button>
+      <mat-form-field class="campo">
+        <mat-label>Valor</mat-label>
+        <input matInput name="debitValue" [(ngModel)]="debitValue" />
+      </mat-form-field>
 
-  <table mat-table [(dataSource)]="creditsTable" class="mat-elevation-z8">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let credit"> {{credit.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="value">
-      <th mat-header-cell *matHeaderCellDef> Valor </th>
-      <td mat-cell *matCellDef="let credit"> {{credit.value}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="creditColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: creditColumns;"></tr>
-  </table>
+      <mat-form-field class="campo">
+        <mat-label>Status</mat-label>
+        <input matInput name="debitStatus" [(ngModel)]="debitStatus" />
+      </mat-form-field>
+      <div class="botao">
+        <button mat-mini-fab color="primary" (click)="addDebit()">
+          <span class="material-icons"> add </span>
+        </button>
+      </div>
+    </div>
+    <table mat-table [(dataSource)]="debitsTable" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let debit">{{ debit.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Valor</th>
+        <td mat-cell *matCellDef="let debit">
+          {{ debit.value | currency: "BRL" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let debit">
+          {{ debit.status }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="debitColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: debitColumns"></tr>
+    </table>
+  </mat-card>
+</div>
 
-</mat-card>
-
-<mat-card class="card">
-  <mat-card-title>Débitos</mat-card-title>
-</mat-card>
-
-<button mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+<button mat-raised-button color="warn" (click)="create()">Cadastrar</button>

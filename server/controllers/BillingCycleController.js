@@ -25,8 +25,20 @@ class BillingCycleController {
     res.status(200).json(result);
   }
 
-  async deleteAll(req, res){
+  async deleteAll(req, res) {
     var result = await billingCycle.deleteMany();
+    res.status(200).json(result);
+  }
+
+  async update(req, res) {
+    let cycle = req.body;
+    var result = await billingCycle.updateOne({ _id: cycle._id }, cycle);
+    res.status(200).json(result);
+  }
+
+  async delete(req, res) {
+    await billingCycle.deleteOne({ _id: req.params.cycleId });
+    var result = await billingCycle.find({});
     res.status(200).json(result);
   }
 }

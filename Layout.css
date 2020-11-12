@@ -1,0 +1,40 @@
+.data{
+    height: 200px;
+    background-color: #564211;
+}
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    background-color: #adefad;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+.esquerda{
+    background-color: #321312;
+    margin-right: 8px;
+}
+.direita{
+    background-color: #745123;
+    margin-left: 8px;
+}
+
+.celula{
+    flex: 1;
+    height: 200px;
+}
+
+.tabela{
+    height: 80px;
+    width: 100%;
+    background-color: #345657;
+}
+.campos{
+    display: flex;
+    flex-direction: row;
+}
+.campo{
+    flex: 3;
+}
+.botao{
+    flex: 1;
+}
