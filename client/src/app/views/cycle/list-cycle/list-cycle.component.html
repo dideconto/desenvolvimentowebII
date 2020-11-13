@@ -10,6 +10,7 @@
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef>Data do Ciclo</th>
     <td mat-cell *matCellDef="let cycle">{{ cycle.date | date:"MMMM 'de' yyyy" }}</td>
+    "dd/MM/yyyy"
   </ng-container>
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>Alterar</th>

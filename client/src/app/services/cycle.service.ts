@@ -27,4 +27,7 @@ export class CycleService {
   delete(id: string): Observable<BillingCycle[]>{
     return this.http.delete<BillingCycle[]>(`${this.baseURL}/${id}`);
   }
+  getByMonthYear(year: number, month: number): Observable<BillingCycle>{
+    return this.http.get<BillingCycle>(`${this.baseURL}/${year}/${month}`);
+  }
 }

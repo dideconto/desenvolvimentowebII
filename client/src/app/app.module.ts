@@ -22,10 +22,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table'; 
+import {MatSelectModule} from '@angular/material/select';
 
+//Importar bibliotecas de localição e registrar o idioma
 import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from '@angular/common';
-
 registerLocaleData(localePt);
 
 @NgModule({
@@ -50,8 +51,10 @@ registerLocaleData(localePt);
     MatCardModule,
     MatFormFieldModule, 
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
+  //Definir idioma padrão da aplicação
   providers: [{
     provide: LOCALE_ID,
     useValue: "pt-BR"

@@ -1,5 +1,7 @@
 ###
 GET http://localhost:1234/
+###
+GET http://localhost:1234/2020/9
 
 ###
 GET http://localhost:1234/5f483ea0659fd40bf4e726f1
@@ -12,7 +14,7 @@ POST http://localhost:1234/
 Content-Type: application/json
 
 {
-    "date": "2020-09-24",
+    "date": "2021-10-24",
     "credits":
     [
         {
@@ -32,4 +34,12 @@ Content-Type: application/json
             "status": "PAGO"
         }
     ]
+}
+
+###
+POST http://localhost:1234/
+Content-Type: application/json
+
+{
+    "date": "2020-09-24T00:00:00.000Z"
 }

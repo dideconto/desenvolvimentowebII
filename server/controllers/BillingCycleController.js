@@ -15,8 +15,20 @@ class BillingCycleController {
     }
   }
 
+  async getByMonthYear(req, res){
+    let year = Number(req.params.year);
+    let month = Number(req.params.month);
+    let cycles = await billingCycle.find({}).sort({ date: -1 });
+    for (let cycle of cycles) {
+      if (cycle.date.getFullYear() === year && cycle.date.getMonth() === month) {
+        return res.status(200).json( cycle);
+      }
+    }
+    return res.status(404);
+  }
+
   async get(req, res) {
-    var result = await billingCycle.find({});
+    var result = await billingCycle.find({}).sort({ date: -1 });
     res.status(200).json(result);
   }
 

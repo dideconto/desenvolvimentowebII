@@ -3,7 +3,7 @@
 
   <mat-form-field>
     <mat-label>Data do ciclo</mat-label>
-    <input matInput name="date" [(ngModel)]="date" />
+    <input matInput name="date" [(ngModel)]="date" (blur)="getCycle()" />
   </mat-form-field>
 </mat-card>
 <div class="conteudo">
@@ -54,10 +54,15 @@
         <input matInput name="debitValue" [(ngModel)]="debitValue" />
       </mat-form-field>
 
-      <mat-form-field class="campo">
+      <mat-form-field class="campo" appearance="fill">
         <mat-label>Status</mat-label>
-        <input matInput name="debitStatus" [(ngModel)]="debitStatus" />
+        <mat-select [(ngModel)]="debitStatus">
+          <mat-option value="AGENDADO"> AGENDADO </mat-option>
+          <mat-option value="PAGO"> PAGO </mat-option>
+          <mat-option value="PENDENTE"> PENDENTE </mat-option>
+        </mat-select>
       </mat-form-field>
+
       <div class="botao">
         <button mat-mini-fab color="primary" (click)="addDebit()">
           <span class="material-icons"> add </span>
