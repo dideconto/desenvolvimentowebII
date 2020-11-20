@@ -15,16 +15,20 @@ class BillingCycleController {
     }
   }
 
-  async getByMonthYear(req, res){
+  async getByMonthYear(req, res) {
     let year = Number(req.params.year);
     let month = Number(req.params.month);
     let cycles = await billingCycle.find({}).sort({ date: -1 });
     for (let cycle of cycles) {
-      if (cycle.date.getFullYear() === year && cycle.date.getMonth() === month) {
-        return res.status(200).json( cycle);
+      if (
+        cycle.date.getFullYear() === year &&
+        cycle.date.getMonth() === month
+      ) {
+        return res.status(200).json(cycle);
       }
     }
-    return res.status(404);
+    console.log("123123");
+    return res.status(404).json({msg:"Não encontrado!"});
   }
 
   async get(req, res) {
@@ -52,6 +56,22 @@ class BillingCycleController {
     await billingCycle.deleteOne({ _id: req.params.cycleId });
     var result = await billingCycle.find({});
     res.status(200).json(result);
+  }
+
+  async dashboard(req, res) {
+    let result = await billingCycle.find({});
+    let totalCredits = 0;
+    let totalDebits = 0;
+    for (let cycle of result) {
+      for (let credit of cycle.credits) {
+        totalCredits += credit.value;
+      }
+      for (let debit of cycle.debits) {
+        totalDebits += debit.value;
+      }
+    }
+    console.log({totalCredits, totalDebits});
+    res.status(200).json({totalCredits, totalDebits});
   }
 }
 

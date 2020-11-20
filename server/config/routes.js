@@ -3,6 +3,7 @@ const router = express.Router();
 const billingCycleController = require("../controllers/BillingCycleController.js");
 
 router.get("/", billingCycleController.get);
+router.get("/dashboard", billingCycleController.dashboard);
 router.get("/:cycleId", billingCycleController.getById);
 router.get("/:year/:month", billingCycleController.getByMonthYear);
 router.post("/", billingCycleController.store);

@@ -1,7 +1,11 @@
 ###
 GET http://localhost:1234/
+
 ###
-GET http://localhost:1234/2020/9
+GET http://localhost:1234/dashboard
+
+###
+GET http://localhost:1234/2025/1
 
 ###
 GET http://localhost:1234/5f483ea0659fd40bf4e726f1

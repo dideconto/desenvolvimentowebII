@@ -44,13 +44,7 @@ export class CreateCycleComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get("id");
     if (id !== null) {
       this.service.getById(id).subscribe((cycle) => {
-        console.log(cycle);
-        this.cycle = cycle;
-        this.credits = cycle.credits;
-        this.debits = cycle.debits;
-        this.date = cycle.date.toString();
-        this.creditsTable = new MatTableDataSource<Credit>(this.credits);
-        this.debitsTable = new MatTableDataSource<Debit>(this.debits);
+        this.loadData(cycle);
       });
     }
   }
@@ -99,15 +93,29 @@ export class CreateCycleComponent implements OnInit {
   }
 
   getCycle(): void {
+    console.log("tesadsads");
     let dateInput = new Date(this.date);
-    this.service.getByMonthYear(dateInput.getFullYear(), dateInput.getMonth()).subscribe((cycle) => {
-      console.log(cycle);
-      this.cycle = cycle;
-      this.credits = cycle.credits;
-      this.debits = cycle.debits;
-      this.date = cycle.date.toString();
-      this.creditsTable = new MatTableDataSource<Credit>(this.credits);
-      this.debitsTable = new MatTableDataSource<Debit>(this.debits);
-    });
+    this.service
+      .getByMonthYear(dateInput.getFullYear(), dateInput.getMonth())
+      .subscribe(
+        (cycle) => {
+          this.loadData(cycle);
+        },
+        (error) => {
+          if (error.status === 404) {
+            this.service.showMessage("Ciclo de pagamento não encontrado");
+          }
+        }
+      );
+  }
+
+  loadData(cycle: BillingCycle) {
+    console.log(cycle);
+    this.cycle = cycle;
+    this.credits = cycle.credits;
+    this.debits = cycle.debits;
+    this.date = cycle.date.toString();
+    this.creditsTable = new MatTableDataSource<Credit>(this.credits);
+    this.debitsTable = new MatTableDataSource<Debit>(this.debits);
   }
 }
